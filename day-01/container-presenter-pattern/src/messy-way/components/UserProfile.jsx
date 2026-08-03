@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 const UserProfile = ({ userId }) => {
   const [user, setUser] = useState(null);
@@ -17,14 +16,17 @@ const UserProfile = ({ userId }) => {
   const fetchUserData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`,
       );
-      setUser(response.data);
+
+      const data = await response.json();
+
+      setUser(data);
       setFormData({
-        name: response.data.name,
-        email: response.data.email,
-        bio: response.data.bio,
+        name: data.name,
+        email: data.email,
+        bio: data.bio,
       });
     } catch (err) {
       setError("Failed to fetch user data");
@@ -35,10 +37,13 @@ const UserProfile = ({ userId }) => {
 
   const fetchUserPosts = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}/posts`
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}/posts`,
       );
-      setPosts(response.data);
+
+      const data = await response.json();
+
+      setPosts(data);
     } catch (err) {
       console.error("Failed to fetch posts");
     }
@@ -46,11 +51,20 @@ const UserProfile = ({ userId }) => {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await axios.put(
+      const response = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`,
-        formData
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        },
       );
-      setUser(response.data);
+
+      const data = await response.json();
+
+      setUser(data);
       setIsEditing(false);
     } catch (err) {
       setError("Failed to update profile");

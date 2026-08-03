@@ -11,8 +11,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
-               'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+    Arial, sans-serif;
   line-height: 1.6;
   color: #fff;
   background-color: #f5f7fa;
@@ -42,8 +43,12 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-container p {
@@ -208,7 +213,9 @@ body {
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   font-family: inherit;
 }
 
@@ -399,6 +406,16 @@ body {
 }
 
 /* Products Grid */
+.not-found {
+  height: 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: oblique;
+}
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -443,7 +460,7 @@ body {
 .product-name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1f2937;
+  color: whitesmoke;
   margin-bottom: 0.75rem;
   line-height: 1.4;
 }
@@ -495,7 +512,7 @@ body {
 .current-price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: white;
 }
 
 .original-price {
@@ -559,6 +576,7 @@ body {
 
 .out-of-stock {
   opacity: 0.6;
+  pointer-events: none;
 }
 
 .out-of-stock .add-to-cart-btn {
@@ -583,7 +601,7 @@ body {
 .cart-summary h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1f2937;
+  color: whitesmoke;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -594,10 +612,16 @@ body {
   content: "🛒";
 }
 
-.cart-item {
+.cart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid #f3f4f6;
 }
@@ -608,6 +632,46 @@ body {
   font-size: 1.1rem;
   padding-top: 1rem;
   border-top: 2px solid #e5e7eb;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+}
+
+.cart-item-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-info-digs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear-cart-btn {
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  cursor: pointer;
+}
+
+.clear-cart-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: translateY(-1px);
+}
+
+.remove-cart-btn {
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f63b3b, #d81d1d);
+  cursor: pointer;
+}
+
+.remove-cart-btn:hover {
+  background: linear-gradient(135deg, #eb3225, #af1e1e);
+  transform: translateY(-1px);
 }
 
 /* ===================================

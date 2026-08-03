@@ -23,6 +23,7 @@ const UserProfilePresenter = ({
         name: user.name,
         email: user.email,
         bio: user.bio,
+        avatar: "https://testingbot.com/free-online-tools/random-avatar/300",
       });
     }
   }, [user]);
@@ -55,6 +56,7 @@ const UserProfilePresenter = ({
         name: user.name,
         email: user.email,
         bio: user.bio,
+        avatar: "https://testingbot.com/free-online-tools/random-avatar/300",
       });
     }
   };

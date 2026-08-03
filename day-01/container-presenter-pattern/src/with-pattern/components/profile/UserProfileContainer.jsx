@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import UserProfilePresenter from "./UserProfilePresenter";
 
 const UserProfileContainer = ({ userId }) => {
@@ -17,10 +16,13 @@ const UserProfileContainer = ({ userId }) => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`,
       );
-      setUser(response.data);
+
+      const data = await response.json();
+
+      setUser(data);
     } catch (err) {
       setError("Failed to fetch user data");
     } finally {
@@ -30,10 +32,13 @@ const UserProfileContainer = ({ userId }) => {
 
   const fetchUserPosts = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}/posts`
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}/posts`,
       );
-      setPosts(response.data);
+
+      const data = await response.json();
+
+      setPosts(data);
     } catch (err) {
       console.error("Failed to fetch posts");
       // Don't set loading to false here, posts are secondary
@@ -42,9 +47,15 @@ const UserProfileContainer = ({ userId }) => {
 
   const handleUpdateUser = async (updatedUserData) => {
     try {
-      const response = await axios.put(
+      const response = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`,
-        updatedUserData
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedUserData),
+        },
       );
       setUser(response.data);
       return { success: true };
