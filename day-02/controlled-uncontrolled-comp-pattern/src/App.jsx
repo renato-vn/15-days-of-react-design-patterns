@@ -10,9 +10,25 @@ import UncontrolledFeedbackForm from "./uncontrolled/UncontrolledFeedbackForm";
 
 import UncontrolledFormNoRef from "./uncontrolled/UncontrolledFormNoRef";
 
+import ContactFormControlledComponent from "./controlled/ContactFormControlledComponent";
+import ContactFormUncontrolledComponentRef from "./uncontrolled/ContactFormUncontrolledComponentRef";
+import ContactFormUncontrolledComponentNoRef from "./uncontrolled/ContactFormUncontrolledComponentNoRef";
+
 function App() {
   return (
     <div className="flex flex-col items-center">
+      <section className="w-full min-h-dvh flex items-center justify-center">
+        <ContactFormControlledComponent />
+      </section>
+
+      <section className="w-full min-h-dvh flex items-center justify-center">
+        <ContactFormUncontrolledComponentRef />
+      </section>
+
+      <section className="w-full min-h-dvh flex items-center justify-center">
+        <ContactFormUncontrolledComponentNoRef />
+      </section>
+
       <Counter />
       <AutoFocusInput />
       <CounterWithRef />
