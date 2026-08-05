@@ -1,7 +1,7 @@
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,10 +13,124 @@
   width: 400px;
   position: relative;
 }
-.modal-header { font-weight: bold; margin-bottom: 1rem; }
-.modal-footer { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; }
-.modal-close { position: absolute; top: 8px; right: 8px; background: none; border: none; font-size: 1.2rem; }
+.modal-header {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+}
 
-.accordion-item { margin-bottom: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
-.accordion-title { width: 100%; text-align: left; padding: 0.5rem; font-weight: bold; cursor: pointer; background: #f9f9f9; border: none; }
-.accordion-content { padding: 0.5rem; background: #fff; }
+.accordion-item {
+  margin-bottom: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.accordion-title {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #f9f9f9;
+  border: none;
+}
+.accordion-content {
+  padding: 0.5rem;
+  background: #fff;
+}
+
+.card {
+  min-width: 250px;
+  min-height: 300px;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 2rem;
+  color: whitesmoke;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-body {
+  width: 500px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.card-footer button {
+  background-color: green;
+  padding: 1rem 2rem;
+  border-radius: 20rem;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.card-footer button:hover,
+.tabs-button:hover {
+  background-color: rgb(0, 128, 62);
+}
+
+.card-image {
+  border-radius: 5% 5% 0 0;
+}
+
+.tabs {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+}
+
+.tabs-buttons-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabs-button {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  background-color: green;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  color: whitesmoke;
+  border-radius: 20rem;
+}
+
+.tabs-content {
+  display: none;
+}
+
+.tabs-content.active {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
