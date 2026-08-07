@@ -40,3 +40,67 @@
 .read-the-docs {
   color: #888;
 }
+
+/* El contenedor/pista principal del switch */
+.toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 60px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  background-color: #ccc;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* El círculo deslizante (knob) */
+.toggle .knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2; /* Mantiene la bolita por encima del texto */
+}
+
+/* Formateo del texto de renderizado */
+.toggle-text {
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+  text-align: right;
+  padding-right: 8px;
+  user-select: none;
+}
+
+/* 🟢 ESTADO ENCENDIDO (True) */
+.toggle[aria-checked="true"] {
+  background-color: #4caf50;
+}
+
+/* Mueve el círculo a la derecha */
+.toggle[aria-checked="true"] .knob {
+  transform: translateX(26px);
+}
+
+/* Ajusta el texto cuando cambia de lado */
+.toggle[aria-checked="true"] .toggle-text {
+  text-align: left;
+  padding-left: 8px;
+  color: white;
+}
+
+/* Indicador visual de accesibilidad para teclado */
+.toggle:focus-visible {
+  outline: 2px solid #2196f3;
+  outline-offset: 2px;
+}
